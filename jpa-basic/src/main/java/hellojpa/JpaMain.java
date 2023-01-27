@@ -18,8 +18,16 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member(10L, "userA" );
-            em.persist(member);
+            Member member1 = new Member();
+            Member member2 = new Member();
+
+            member1.setUsername("a");
+            member2.setUsername("b");
+
+            System.out.println("=============");
+            em.persist(member1);
+            em.persist(member2);
+            System.out.println("=============");
 
 
             tx.commit();
