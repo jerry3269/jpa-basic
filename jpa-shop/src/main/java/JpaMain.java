@@ -1,3 +1,4 @@
+import domain.Book;
 import domain.Member;
 import domain.Order;
 import domain.OrderItem;
@@ -19,37 +20,11 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
-            member.setName("memberA");
 
-            System.out.println("===============");
-            em.persist(member);
-
-            Order order = new Order();
-            order.setMember(member);
-
-            System.out.println("===============");
-            em.persist(order);
-
-            System.out.println("===============");
-
-            em.flush();
-            em.clear();
-
-            Member findMember = em.find(Member.class, member.getId());
-            Order findOrder = em.find(Order.class, order.getId());
-
-            System.out.println("===============");
-
-            for (Order findMemberOrder : findMember.getOrders()) {
-                System.out.println("findMemberOrder = " + findMemberOrder);
-            }
-
-            System.out.println("===============");
-
-            System.out.println("findOrder.getMember() = " + findOrder.getMember());
-
-            System.out.println("===============");
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
+            em.persist(book);
             tx.commit();
         }catch (Exception e) {
             tx.rollback();
