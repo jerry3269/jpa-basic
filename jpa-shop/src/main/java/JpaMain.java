@@ -1,7 +1,4 @@
-import domain.Book;
-import domain.Member;
-import domain.Order;
-import domain.OrderItem;
+import domain.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,10 +18,11 @@ public class JpaMain {
 
         try {
 
-            Book book = new Book();
-            book.setName("JPA");
-            book.setAuthor("김영한");
-            em.persist(book);
+
+
+
+
+
             tx.commit();
         }catch (Exception e) {
             tx.rollback();
